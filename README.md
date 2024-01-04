@@ -48,3 +48,5 @@ touch .env
   `from decouple import config`
 
   `SECRET_KEY = config('SECRET_KEY')`
+
+For further information and alternatives of python-decouple check on my gist [How to Create Environment Variable](https://gist.github.com/sudeepsudhevan/4ed6a287ef9ba51c97cd5d6eebf14008)
