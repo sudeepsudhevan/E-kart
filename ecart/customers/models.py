@@ -3,6 +3,8 @@ from django.contrib.auth.models import User
 
 # Create your models here.
 
+# Model for customer
+
 
 class Customer(models.Model):
     LIVE = 1

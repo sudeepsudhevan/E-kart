@@ -4,6 +4,8 @@ from products.models import Product
 
 # Create your models here.
 
+# Data Model for Order
+
 
 class Order(models.Model):
     LIVE = 1
@@ -32,6 +34,7 @@ class Order(models.Model):
     updated_at = models.DateTimeField(auto_now=True)
 
 
+# model for Ordered Item
 class OrderedItem(models.Model):
     product = models.ForeignKey(
         Product, on_delete=models.SET_NULL, related_name="added_carts"
