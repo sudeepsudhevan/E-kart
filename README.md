@@ -49,6 +49,13 @@ touch .env
 
   `SECRET_KEY = config('SECRET_KEY')`
 
-For further information and alternatives of python-decouple check on my gist. 
+For further information and alternatives of python-decouple check on my gist.
 
 [How to Create Environment Variable](https://gist.github.com/sudeepsudhevan/4ed6a287ef9ba51c97cd5d6eebf14008)
+
+## To Generate Migrations
+
+```bash
+python manage.py makemigrations
+python manage.py migrate
+```
