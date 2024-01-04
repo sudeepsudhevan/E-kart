@@ -38,9 +38,11 @@ touch .env
 ```
 
 - Then add the following line to the.env file
+
   `SECRET_KEY = "your_secret_key"` in the settings.py
 
 - In settings.py add the following line
+
   `from decouple import config`
 
   `SECRET_KEY = config('SECRET_KEY')`
