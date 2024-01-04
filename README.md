@@ -8,7 +8,7 @@ Clone the repository and create a virtual environment.
 
 ```bash
 git clone https://github.com/sudeepsudhevan/E-kart.git
-cd project-name
+cd E-kart
 python -m venv env
 source env/bin/activate
 ```
