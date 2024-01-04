@@ -39,7 +39,9 @@ touch .env
 
 - Then add the following line to the.env file
 
-  `SECRET_KEY = "your_secret_key"` in the settings.py
+  `SECRET_KEY = "your_secret_key"`
+
+  We can find your secret key in settings.py
 
 - In settings.py add the following line
 
