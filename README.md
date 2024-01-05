@@ -59,3 +59,29 @@ For further information and alternatives of python-decouple check on my gist.
 python manage.py makemigrations
 python manage.py migrate
 ```
+
+## To Add static file
+
+Add the static folder to the settings.py
+
+```bash
+STATIC_URL = 'static/'
+STATICFILES_DIRS = [
+    BASE_DIR / "static",
+]
+```
+
+## To Add media file
+
+Add the media folder to the settings.py
+
+```bash
+MEDIA_URL = 'media/'
+MEDIA_ROOT = os.path.join(BASE_DIR,'media')
+```
+
+Add the following line to the urls.py
+
+```bash
+urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+```
