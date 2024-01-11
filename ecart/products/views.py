@@ -1,5 +1,7 @@
 from django.shortcuts import render
 
+from .models import Product
+
 # Create your views here.
 
 
@@ -17,7 +19,9 @@ def list_products(request):
     Returns:
         _type_: _description_
     """
-    return render(request, "products.html")
+    product_list = Product.objects.all()
+    context = {"products": product_list}
+    return render(request, "products.html", context)
 
 
 def detail_product(request):
