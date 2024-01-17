@@ -7,9 +7,9 @@
             </div>
             <div class="col-2">
                 {% if messages %}
-                <div>
+                <div class="message-container">
                     {% for message in messages %}
-                    <li>{{ message }}</li>
+                    <li class="{{ message.tags }}">{{ message }}</li>
                     {% endfor %}
                 </div>
                 {% endif %}
