@@ -1,7 +1,10 @@
 {% load static %}
+{% load multiply %}
+{% load gettotal %}
+
 <div class="small-container cart-page">
 
-    {% if cart %}
+    {% if cart and cart.added_items.all %}
 
     <table>
         <tbody>
@@ -19,12 +22,12 @@
                             <p>{{ cart_item.product.title }}</p>
                             <small>Price: ${{ cart_item.product.price }}</small>
                             <br>
-                            <a href="">Remove</a>
+                            <a href="{% url 'remove_item' cart_item.id %}">Remove</a>
                         </div>
                     </div>
                 </td>
                 <td><input type="number" disabled value="{{ cart_item.quantity }}"></td>
-                <td>${{ cart_item.product.price }}</td>
+                <td>${% multiply cart_item.product.price cart_item.quantity %}</td>
             </tr>
             {% endfor %}
         </tbody>
@@ -35,28 +38,28 @@
             <tbody>
                 <tr>
                     <td>Subtotal</td>
-                    <td>$200.00</td>
+                    <td>${% gettotal cart 0 %}</td>
                 </tr>
+                {% with tax_rate=18 %}
                 <tr>
                     <td>Tax</td>
-                    <td>$35.00</td>
+                    <td>{{ tax_rate }} %</td>
                 </tr>
                 <tr>
                     <td>Total</td>
-                    <td>$230.00</td>
+                    <td>${% gettotal cart tax_rate %}</td>
                 </tr>
+                {% endwith %}
                 <tr>
                     <td colspan="2">
-                    <td><button>Confirm Order</button></td>
+                    <td><button class="btn">Checkout</button></td>
                     </td>
                 </tr>
             </tbody>
         </table>
-
-
     </div>
     {% else %}
-    <div>
+    <div class="empty-cart">
         <p>Your cart is empty</p>
     </div>
     {% endif %}
