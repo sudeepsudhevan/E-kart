@@ -49,12 +49,21 @@
                     <td>Total</td>
                     <td>${% gettotal cart tax_rate %}</td>
                 </tr>
-                {% endwith %}
+
                 <tr>
                     <td colspan="2">
-                    <td><button class="btn">Checkout</button></td>
+                    <td></td>
+
+                    <td>
+                        <form action="{% url 'checkout' %}" method="post" enctype="multipart/form-data">
+                            {% csrf_token %}
+                            <input type="hidden" name="total" value="{% gettotal cart tax_rate %}" />
+                            <button class="btn" type="submit">CheckOut</button>
+                        </form>
+                    </td>
                     </td>
                 </tr>
+                {% endwith %}
             </tbody>
         </table>
     </div>
