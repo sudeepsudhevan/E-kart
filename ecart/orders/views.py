@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect
 from .models import Order, OrderedItem
 from products.models import Product
 from django.contrib import messages
+from django.contrib.auth.decorators import login_required
 
 # Create your views here.
 
@@ -46,6 +47,18 @@ def checkout_cart(request):
     return redirect("cart")
 
 
+@login_required(login_url="account")
+def show_orders(request):
+    user = request.user
+    customer = user.customer_profile
+    all_orders = Order.objects.filter(owner=customer).exclude(
+        order_status=Order.CART_STAGE
+    )
+    context = {"orders": all_orders}
+    return render(request, "orders.html", context)
+
+
+@login_required(login_url="account")
 def add_to_cart(request):
     if request.method == "POST":
         user = request.user

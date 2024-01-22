@@ -3,5 +3,18 @@ from orders.models import Order, OrderedItem
 
 # Register your models here.
 
-admin.site.register(Order)
-# admin.site.register(OrderedItem)
+
+class OrderAdmin(admin.ModelAdmin):
+    list_display = [
+        "owner",
+        "order_status",
+        "total_price",
+    ]
+
+    search_fields = [
+        "owner",
+        "id",
+    ]
+
+
+admin.site.register(Order, OrderAdmin)
