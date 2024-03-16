@@ -64,7 +64,7 @@ python manage.py migrate
 
 Add the static folder to the settings.py
 
-```bash
+```py
 STATIC_URL = 'static/'
 STATICFILES_DIRS = [
     BASE_DIR / "static",
@@ -75,14 +75,14 @@ STATICFILES_DIRS = [
 
 Add the media folder to the settings.py
 
-```bash
+```py
 MEDIA_URL = 'media/'
 MEDIA_ROOT = os.path.join(BASE_DIR,'media')
 ```
 
 Add the following line to the urls.py
 
-```bash
+```py
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 ```
 
@@ -110,7 +110,7 @@ python manage.py startapp customers
 
 `ecart/setting.py`
 
-```bash
+```py
 INSTALLED_APPS = [
     "django.contrib.admin",
     "django.contrib.auth",
@@ -126,7 +126,7 @@ INSTALLED_APPS = [
 ```
 And the templates in here.
 
-```bash
+```py
 TEMPLATES = [
     {
         "BACKEND": "django.template.backends.django.DjangoTemplates",
