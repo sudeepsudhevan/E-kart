@@ -85,3 +85,17 @@ Add the following line to the urls.py
 ```bash
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 ```
+
+## Folder Structure of this Project
+
+* ecart
+  * customers
+  * ecart
+  * media
+  * orders
+  * products
+  * static
+  * templates
+  * themes
+
+`url.py` should be added in customers,orders,products folders
