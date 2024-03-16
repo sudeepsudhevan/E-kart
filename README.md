@@ -86,6 +86,12 @@ Add the following line to the urls.py
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 ```
 
+## Create an App
+
+```bash
+python manage.py startapp customers
+```
+
 ## Folder Structure of this Project
 
 * ecart
