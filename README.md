@@ -100,7 +100,7 @@ urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 `url.py` should be added in customers,orders,products folders
 
-## In Installed apps should add these folder names
+## In settings.py should add these folder names
 
 `ecart/setting.py`
 
