@@ -99,3 +99,41 @@ urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
   * themes
 
 `url.py` should be added in customers,orders,products folders
+
+## In Installed apps should add these folder names
+
+`ecart/setting.py`
+
+```bash
+INSTALLED_APPS = [
+    "django.contrib.admin",
+    "django.contrib.auth",
+    "django.contrib.contenttypes",
+    "django.contrib.sessions",
+    "django.contrib.messages",
+    "django.contrib.staticfiles",
+    "products",
+    "customers",
+    "orders",
+    "themes",
+]
+```
+And the templates in here.
+
+```bash
+TEMPLATES = [
+    {
+        "BACKEND": "django.template.backends.django.DjangoTemplates",
+        "DIRS": ["templates"],      # here
+        "APP_DIRS": True,
+        "OPTIONS": {
+            "context_processors": [
+                "django.template.context_processors.debug",
+                "django.template.context_processors.request",
+                "django.contrib.auth.context_processors.auth",
+                "django.contrib.messages.context_processors.messages",
+            ],
+        },
+    },
+]
+```
